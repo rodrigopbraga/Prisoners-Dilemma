@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Prisoner's Dilemma Simulator</title>
+        <meta charset="UTF-8">
+        <meta name="author" content="rodrigopbraga">
+        <meta name="keywords" content="HTML, CSS, JavaScript, Dilemma, Game, Morale">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container-top">
+            <div class="container-title">
+                <h1>Prisoner's Dilemma Simulator</h1>
+            </div>
+            <div class="display-toggle">
+                <button class="button" onclick="DisplayToggle()">◐</button>
+            </div>
+        </div>
+        <div class="container-main">
+            <div class="container-left">
+                <div class="round-count">
+                    <span>Round Count: <span id="roundvalue"></span></span><br>
+                    <input id="roundcounter" class="slider" type="range" min="5" max="50" value="10"/>
+                </div>
+                <div>
+                    <span class="button" id="knowplayersbutton">▌Select your Player ▌</span><br>
+                    <span class="popup-content">
+                        <div id="knowplayer">
+                            <dialog id="knowplayersdialog">
+                                <p>Tit for Tat: Starts Cooperating. Then copies the opponent's last move.</p>
+                                <p>Always Cooperate: Always plays Cooperate no matter what.</p>
+                                <p>Always Defect: Always plays Defect no matter what.</p>
+                                <p>Detective: Cooperates in the first round, defects in the second round, then copies the opponent's last move.</p>
+                                <p>Par For Tat: Cooperates until he gets defected twice, then retaliates once.</p>
+                                <button id="close-modal" class="button">[✖]</button>
+                            </dialog>
+                        </div>
+                    </span>
+                </div>
+                <div class="strategy-select">
+                    <div class="strategy-A">
+                        <span>Player A Strategy: </span>
+                        <select id="playerA" class="select" style="width: max-content;">
+                            <option value="Random">Random</option>
+                            <option value="TitForTat">Tit For Tat</option>
+                            <option value="Cooperate">Always Cooperate</option>
+                            <option value="Defect">Always Defect</option>
+                            <option value="Detective">Detective</option>
+                            <option value="ParForTat">Par For Tat</option>
+                        </select>
+                    </div>
+                    <div class="strategy-B">
+                        <span>Player B Strategy: </span>
+                        <select id="playerB" class="select" style="width: max-content;">
+                            <option value="Random">Random</option>
+                            <option value="TitForTat">Tit For Tat</option>
+                            <option value="Cooperate">Always Cooperate</option>
+                            <option value="Defect">Always Defect</option>
+                            <option value="Detective">Detective</option>
+                            <option value="ParForTat">Par For Tat</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mistakes">
+                    <span>Mistake ratio:<span id="mistakevalue"></span>%</span><br>
+                    <input id="mistakecounter" class="slider" type="range" min="0" max="50" value="0"/>
+                </div>
+            </div>
+
+            <div class="container-center">
+                <div class="game"><span id="aname"></span> X <span id="bname"></span><br>
+                    <button class="button" onclick="StartGame(A, B)">Start</button>
+                    <div class="game-round">
+                        <span>A </span><div id="Aplays"></div>
+                        <br>
+                        <span>B </span><div id="Bplays"></div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <div class="container-right">
+                <span class="stats-label">Statistics:</span><br>
+                <p id="stats-bar"></p>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

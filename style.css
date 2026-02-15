@@ -1,0 +1,223 @@
+*{
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body{
+  background-color: black;
+  color: white;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  flex-direction: column;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  transition: all .5s ease-in-out;
+}
+
+.dark-mode {
+  background-color: white;
+  color: black;
+}
+
+.logo{
+  max-width: 600px;
+  margin-bottom: 24px;
+}
+
+.container-top{
+  display: flex;
+  text-align: center;
+  align-content: space-evenly;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  background-color: #0F6CBD;
+  vertical-align: baseline;
+  font-size: 30px;
+  text-align: center;
+}
+
+.container-title{
+  padding: 10px;
+  text-align: left;
+  flex: 95%;
+}
+
+.button{
+  border: none;
+  color: inherit;
+  background-color: inherit;
+  padding: 15px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 30px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+
+.button:hover{
+  background-color: #1577cc;
+}
+
+.display-toggle{
+  flex: 5%;
+  padding: 10px;
+  background-color: inherit;
+  right:8px;
+}
+
+.container-main{
+  display: flex;
+  flex-wrap: wrap;
+  position: fixed;
+  top: 99px;
+  left: 0;
+  width: 100%;
+  padding: 25px;
+  font-size: 30px;
+  text-align: center;
+  align-content: space-evenly;
+  accent-color: red;
+}
+
+.container-left{
+  flex: 25%;
+  vertical-align: middle;
+}
+
+.slider {
+  margin-top: 8px;
+  appearance: none;
+  -webkit-appearance: none;
+  width: 50%;
+  height: 13px;
+  border-radius: 5px;  
+  background: #c2d4d1;
+  outline: auto;
+  outline-color: aqua;
+  opacity: 0.5;
+  transition: all .3s ease-in-out;
+}
+
+.slider:hover {
+  opacity: 0.69;
+}
+
+.popup-container {
+  position: relative; /* Container needs to be relative */
+  display: inline-block;
+  cursor: pointer;
+}
+
+.popup-content {
+  border: #0F6CBD 3px solid;
+  visibility: hidden; /* Hidden by default */
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute; /* Position the popup content absolutely */
+  z-index: 10; /* Ensure it appears on top of other elements */
+  bottom: -100%; /* Position above the hovered element */
+  left: 100%;
+  margin-left: -60px; /* Center the popup content (half of width) */
+}
+
+.popup-container:hover .popup-content {
+  visibility: visible; /* Show the popup content on hover */
+}
+
+.button-cta{
+  height: 40px;
+  margin-top: 40px;
+  background-color: #3EB72B;
+  border:0;
+  border-radius: 4px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.container-center{
+  /* max-width: 480px; */
+  /* margin: 14px 0; */
+  flex: 50%;
+  align-items: center;
+  /* cursor: pointer; */
+}
+
+.title{
+  text-align: center;
+  font-size: 28px;
+  margin-top: 24px;
+  margin-bottom: 8px;
+} 
+
+.password{
+  height: 60px;
+  background-color: rgba(0,0,0,0.40);
+  border: 1px solid #313131;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  transition: transform 0.5s;
+}
+.password:hover{
+  transform: scale(1.05);
+  border-color: #07eeb4;
+}
+
+.hide{
+  display: none;
+}
+
+.tooltip{
+  position: relative;
+  top: 20px;
+  padding: 6px 8px;
+  font-size: 16px;
+  border-radius: 6px;
+  background: rgb(15, 15, 15);
+  opacity: 0;
+  visibility: hidden;
+  transition: all .5s ease-in-out;
+  text-align: center;
+}
+
+.container-center:hover .tooltip{
+  bottom: 50px;
+  visibility: visible;
+  opacity: 1;
+}
+
+.container-right{
+  flex: 25%;
+}
+
+@media (max-width: 800px) {
+  .container-center, .container-left, .container-right {
+    flex: 100%;
+  }
+}
+
+/* .game {
+  
+} */
+
+.tplay {
+  background-color: #3EB72B;
+}
+
+.fplay {
+  background-color: #b72b2b;
+}
