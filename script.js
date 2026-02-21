@@ -1,5 +1,5 @@
-let sliderRound = document.getElementById("roundcounter");
-let sliderMistake = document.getElementById("mistakeratio");
+let sliderRound = document.getElementById("roundcounter");// Get the elements for player selection on round counter
+let sliderMistake = document.getElementById("mistakeratio");// Get the elements for player selection on mistake ratio
 let selectAElement = document.getElementById("playerA");
 let selectBElement = document.getElementById("playerB");
 
