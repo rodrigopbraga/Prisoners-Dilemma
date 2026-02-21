@@ -102,7 +102,9 @@ const StartGame = (A, B) =>{
 const Duel = (A, B, round) => {
   SetPlay(A, B, round); 
 
-  ItHappens(A, B);
+  ItHappens(A);
+  ItHappens(B);
+
   if(A.lplay && B.lplay) { // both cooperate
     A.cpoints+=3;
     B.cpoints+=3;
@@ -217,12 +219,9 @@ const SetPlay = (A, B, r) => {
   B.lplay=bp;
 }
 
-const ItHappens = (A, B) => {
+const ItHappens = (P) => {
   if(Math.random()<parseInt(nMistake.innerHTML)/100){ //with a certain probability, a player's intended move is flipped
-    A.lplay = !A.lplay;
-  }
-  if(Math.random()<parseInt(nMistake.innerHTML)/100){ //with a certain probability, a player's intended move is flipped
-    B.lplay = !B.lplay;
+    P.lplay = !P.lplay;
   }
 }
 
@@ -235,6 +234,7 @@ function AddPlay(play){
   const newPlay = document.createElement("span");
   newPlay.innerHTML = play ? "[✔]" : "[✖]";
   newPlay.className = play ? "tplay" : "fplay";
+  newPlay.id = 'cplay';
   return newPlay;
 }
 

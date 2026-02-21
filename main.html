@@ -12,10 +12,10 @@
     <body>
         <div class="container-top">
             <div class="container-title">
-                <h1>Prisoner's Dilemma Simulator</h1>
+                <h1 id="website-title">Prisoner's Dilemma Simulator</h1>
             </div>
             <div class="display-toggle">
-                <button class="button" onclick="DisplayToggle()">◐</button>
+                <button id="display-toggle-button" class="button" onclick="DisplayToggle()">◐</button>
             </div>
         </div>
         <div class="container-main">
@@ -65,13 +65,13 @@
                 </div>
                 <div class="mistakes">
                     <span>Mistake ratio:<span id="mistakevalue"></span>%</span><br>
-                    <input id="mistakecounter" class="slider" type="range" min="0" max="50" value="0"/>
+                    <input id="mistakeratio" class="slider" type="range" min="0" max="50" value="0"/>
                 </div>
             </div>
 
             <div class="container-center">
                 <div class="game"><span id="aname"></span> X <span id="bname"></span><br>
-                    <button class="button" onclick="StartGame(A, B)">Start</button>
+                    <button id="start-button" class="button" onclick="StartGame(A, B)">Start</button>
                     <div class="game-round">
                         <span>A </span><div id="Aplays"></div>
                         <br>
