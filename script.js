@@ -1,6 +1,5 @@
-
 let sliderRound = document.getElementById("roundcounter");
-let sliderMistake = document.getElementById("mistakecounter");
+let sliderMistake = document.getElementById("mistakeratio");
 let selectAElement = document.getElementById("playerA");
 let selectBElement = document.getElementById("playerB");
 
@@ -84,7 +83,14 @@ closeModal.addEventListener("click", () => {
   modal.close();
 });
 
-
+const Check50 = () => {
+  if(parseInt(nMistake.innerHTML)===50){
+    document.getElementById("mistake50").hidden=false;
+  }
+  else{
+    document.getElementById("mistake50").hidden=true;
+  }
+}
 
 const StartGame = (A, B) =>{
   ClearGame(A, B);
