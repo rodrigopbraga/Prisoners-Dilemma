@@ -9,7 +9,20 @@ let aName = document.getElementById("aname");
 let bName = document.getElementById("bname");
 let roundA = document.getElementById("Aplays");
 let roundB = document.getElementById("Bplays");
-let statsbar = document.getElementById("stats-bar");
+
+// Stats elements for Player A
+let statNameA = document.getElementById("stats-name-a");
+let statCpointsA = document.getElementById("stat-cpoints-a");
+let statLplayA = document.getElementById("stat-lplay-a");
+let statAtpointsA = document.getElementById("stat-atpoints-a");
+let statAtroundsA = document.getElementById("stat-atrounds-a");
+
+// Stats elements for Player B
+let statNameB = document.getElementById("stats-name-b");
+let statCpointsB = document.getElementById("stat-cpoints-b");
+let statLplayB = document.getElementById("stat-lplay-b");
+let statAtpointsB = document.getElementById("stat-atpoints-b");
+let statAtroundsB = document.getElementById("stat-atrounds-b");
 
 
 
@@ -23,6 +36,7 @@ sliderRound.oninput = function() {
 }
 sliderMistake.oninput = function() {
   nMistake.innerHTML = this.value;
+  Check50();
 }
 selectAElement.onchange = function() {
   aName.innerHTML = this.options[this.selectedIndex].value;
@@ -69,6 +83,12 @@ let defectcounterb=0;
 const DisplayToggle = () => {
   var element = document.body;
   element.classList.toggle("dark-mode");
+  
+  var statsContainer = document.querySelector(".stats-container");
+  if(statsContainer) statsContainer.classList.toggle("dark-mode");
+  
+  var dialog = document.getElementById("knowplayersdialog");
+  if(dialog) dialog.classList.toggle("dark-mode");
 }
 
 const openModal = document.getElementById("knowplayersbutton");
@@ -251,15 +271,28 @@ const SetStats = (P) => {
   P.atpoints+=P.cpoints;
   P.atroundsplayed+=parseInt(nRounds.innerHTML);
 
-  statsbar.textContent+='\n'+P.playername
-    +'\n current points: '+P.cpoints
-    +'\n last play: '+P.lplay
-    +'\n all time points: '+P.atpoints
-    +'\n all time rounds played: '+P.atroundsplayed;
+  if(P === A) {
+    statNameA.textContent = P.playername;
+    statCpointsA.textContent = P.cpoints;
+    statLplayA.textContent = P.lplay ? "✔" : "✖";
+    statAtpointsA.textContent = P.atpoints;
+    statAtroundsA.textContent = P.atroundsplayed;
+  } else if(P === B) {
+    statNameB.textContent = P.playername;
+    statCpointsB.textContent = P.cpoints;
+    statLplayB.textContent = P.lplay ? "✔" : "✖";
+    statAtpointsB.textContent = P.atpoints;
+    statAtroundsB.textContent = P.atroundsplayed;
+  }
 }
 
 const ClearGame = (A, B) => {
-  statsbar.textContent="";
+  // Reset stat displays
+  statCpointsA.textContent = '0';
+  statLplayA.textContent = '-';
+  statCpointsB.textContent = '0';
+  statLplayB.textContent = '-';
+  
   while(roundA.firstChild) {
     roundA.removeChild(roundA.firstChild);
   }

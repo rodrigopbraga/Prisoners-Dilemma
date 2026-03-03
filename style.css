@@ -2,7 +2,6 @@
   margin: 0 auto;
   width: 100%;
   box-sizing: border-box;
-  font-family: sans-serif;
 }
 
 body{
@@ -22,6 +21,54 @@ body{
 .dark-mode {
   background-color: white;
   color: black;
+}
+
+.stats-container.dark-mode {
+  background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+  color: black;
+}
+
+.stats-container.dark-mode .player-stats {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.stats-container.dark-mode .player-stats:hover {
+  background: rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.4);
+}
+
+.stats-container.dark-mode .player-stats h3 {
+  color: #0066cc;
+}
+
+.stats-container.dark-mode .stat-label {
+  color: #333333;
+}
+
+.stats-container.dark-mode .stat-item span:last-child {
+  color: #0066cc;
+}
+
+dialog#knowplayersdialog.dark-mode {
+  background: rgba(255, 255, 255, 0.95);
+  color: #000000;
+  border-color: #0066cc;
+  box-shadow: 0 12px 40px rgba(0, 102, 204, 0.3);
+}
+
+dialog#knowplayersdialog.dark-mode p {
+  color: #333333;
+}
+
+dialog#knowplayersdialog.dark-mode button {
+  background: linear-gradient(135deg, #0066cc, #0052a3);
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+}
+
+dialog#knowplayersdialog.dark-mode button:hover {
+  box-shadow: 0 6px 16px rgba(0, 102, 204, 0.5);
 }
 
 .logo{
@@ -65,7 +112,16 @@ body{
 }
 
 .button:hover{
-  background-color: #1577cc;
+  background-color: #155dbb;
+  transform: scale(1.07);
+  transition: -2s;
+}
+
+.hidden-span{
+  font-size: 16px;
+  color: #07acee;
+  transition: 1s;
+
 }
 
 .display-toggle{
@@ -79,14 +135,15 @@ body{
   display: flex;
   flex-wrap: wrap;
   position: fixed;
+  height: 200px;
   top: 99px;
-  left: 0;
+  bottom: 9px;
   width: 100%;
   padding: 25px;
   font-size: 30px;
   text-align: center;
   align-content: space-evenly;
-  accent-color: red;
+  accent-color: rgb(0, 183, 255);
 }
 
 .container-left{
@@ -103,13 +160,15 @@ body{
   border-radius: 5px;  
   background: #c2d4d1;
   outline: auto;
-  outline-color: aqua;
+  outline-color: #1577cc;
   opacity: 0.5;
   transition: all .3s ease-in-out;
 }
 
 .slider:hover {
   opacity: 0.69;
+  transform: translate(1px);
+  transition: -2s;
 }
 
 .popup-container {
@@ -147,11 +206,8 @@ body{
 }
 
 .container-center{
-  /* max-width: 480px; */
-  /* margin: 14px 0; */
   flex: 50%;
   align-items: center;
-  /* cursor: pointer; */
 }
 
 .title{
@@ -202,6 +258,77 @@ body{
 
 .container-right{
   flex: 25%;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  border: 2px solid #00d4ff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 32px 0 rgba(0, 212, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.stats-label {
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #00d4ff, #0099ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+}
+
+.stats-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.player-stats {
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.player-stats:hover {
+  background: rgba(0, 212, 255, 0.15);
+  border-color: rgba(0, 212, 255, 0.6);
+  transform: translateX(4px);
+}
+
+.player-stats h3 {
+  color: #00ffff;
+  font-size: 16px;
+  margin-bottom: 4px;
+  text-transform: capitalize;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  padding: 6px 8px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.stat-label {
+  color: #a0c4ff;
+}
+
+.stat-item span:last-child {
+  font-weight: bold;
+  color: #00ffff;
 }
 
 @media (max-width: 800px) {
@@ -220,4 +347,46 @@ body{
 
 .fplay {
   background-color: #b72b2b;
+}
+
+/* dialog styling for knowplayersdialog */
+dialog#knowplayersdialog {
+  background: rgba(0, 0, 0, 0.85);
+  color: #ffffff;
+  border: 2px solid #00d4ff;
+  border-radius: 14px;
+  padding: 24px 32px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 12px 40px rgba(0, 212, 255, 0.4);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+dialog#knowplayersdialog p {
+  margin-bottom: 12px;
+}
+
+dialog#knowplayersdialog button {
+  margin-top: 16px;
+  padding: 8px 16px;
+  font-size: 18px;
+  background: linear-gradient(135deg, #00d4ff, #0099ff);
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+dialog#knowplayersdialog button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 212, 255, 0.5);
+}
+
+/* backdrop for open dialog */
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.6);
 }
