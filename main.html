@@ -34,7 +34,7 @@
                                 <p>Always Defect: Always plays Defect no matter what.</p>
                                 <p>Detective: Cooperates in the first round, defects in the second round, then copies the opponent's last move.</p>
                                 <p>Par For Tat: Cooperates until he gets defected twice, then retaliates once.</p>
-                                <button id="close-modal" class="button">[✖]</button>
+                                <button id="close-modal" class="button">[Fechar]</button>
                             </dialog>
                         </div>
                     </span>
@@ -82,7 +82,7 @@
                     </div>
                 </div>
             </div>
-            <div class="container-right">
+            <div class="container-right" draggable="true">
                 <span class="stats-label">Statistics:</span>
                 <div class="stats-container">
                     <div class="player-stats" id="stats-player-a">
@@ -99,6 +99,11 @@
                         <div class="stat-item"><span class="stat-label">All Time Points:</span><span id="stat-atpoints-b">0</span></div>
                         <div class="stat-item"><span class="stat-label">Rounds Played:</span><span id="stat-atrounds-b">0</span></div>
                     </div>
+                </div>
+            </div>
+            <div class="container-bottom">
+                <div class="reset-button-container">
+                        <button id="reset-button" class="button" onclick="ResetGame()">Reset Game</button>
                 </div>
             </div>
         </div>

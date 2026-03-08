@@ -31,6 +31,7 @@ nMistake.innerHTML = sliderMistake.value;
 aName.innerHTML = selectAElement.options[selectAElement.selectedIndex].value;
 bName.innerHTML = selectBElement.options[selectBElement.selectedIndex].value;
 
+
 sliderRound.oninput = function() {
   nRounds.innerHTML = this.value;
 }
@@ -103,6 +104,12 @@ closeModal.addEventListener("click", () => {
   modal.close();
 });
 
+document.addEventListener("click", function(event) {
+  if (event.target === modal) {
+    modal.close();
+  }
+});
+
 const Check50 = () => {
   if(parseInt(nMistake.innerHTML)===50){
     document.getElementById("mistake50").hidden=false;
@@ -120,8 +127,7 @@ const StartGame = (A, B) =>{
     AddRound(A.lplay, B.lplay);
   }
   
-  SetStats(A);
-  SetStats(B);
+  SetStats();
   defectcountera=0;
   defectcounterb=0;
 }
@@ -267,27 +273,29 @@ function AddPlay(play){
 
 
 
-const SetStats = (P) => {
-  P.atpoints+=P.cpoints;
-  P.atroundsplayed+=parseInt(nRounds.innerHTML);
-
-  if(P === A) {
-    statNameA.textContent = P.playername;
-    statCpointsA.textContent = P.cpoints;
-    statLplayA.textContent = P.lplay ? "✔" : "✖";
-    statAtpointsA.textContent = P.atpoints;
-    statAtroundsA.textContent = P.atroundsplayed;
-  } else if(P === B) {
-    statNameB.textContent = P.playername;
-    statCpointsB.textContent = P.cpoints;
-    statLplayB.textContent = P.lplay ? "✔" : "✖";
-    statAtpointsB.textContent = P.atpoints;
-    statAtroundsB.textContent = P.atroundsplayed;
+const SetStats = () => {
+  if(A.cpoints!==0){
+    A.atpoints+=A.cpoints;
+    A.atroundsplayed+=parseInt(nRounds.innerHTML);
+    B.atpoints+=B.cpoints;
+    B.atroundsplayed+=parseInt(nRounds.innerHTML);
   }
+
+  statNameA.textContent = A.playername;
+  statCpointsA.textContent = A.cpoints;
+  statLplayA.textContent = A.lplay ? "✔" : "✖";
+  statAtpointsA.textContent = A.atpoints;
+  statAtroundsA.textContent = A.atroundsplayed;
+
+  statNameB.textContent = B.playername;
+  statCpointsB.textContent = B.cpoints;
+  statLplayB.textContent = B.lplay ? "✔" : "✖";
+  statAtpointsB.textContent = B.atpoints;
+  statAtroundsB.textContent = B.atroundsplayed;
 }
 
 const ClearGame = (A, B) => {
-  // Reset stat displays
+  // Reset stats and board displays
   statCpointsA.textContent = '0';
   statLplayA.textContent = '-';
   statCpointsB.textContent = '0';
@@ -303,6 +311,12 @@ const ClearGame = (A, B) => {
   SetPlayer(B);
 }
 
+const ResetGame = () => {
+  A = new Player(aName.innerHTML, 0, 0, 0, 0);
+  B = new Player(bName.innerHTML, 0, 0, 0, 0);
+  ClearGame(A, B);
+  SetStats();
+}
 const SetPlayer = (P) => {
   P.cpoints=0;
   P.lplay=null;
