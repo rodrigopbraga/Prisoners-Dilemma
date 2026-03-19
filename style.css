@@ -1,18 +1,20 @@
 *{
-  margin: 0 auto;
-  width: 100%;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+}
+
+html, body {
+    height: auto;
+    min-height: 100%;
 }
 
 body{
   background-color: black;
   color: white;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  align-self: center;
   flex-direction: column;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   transition: all .5s ease-in-out;
@@ -78,22 +80,16 @@ dialog#knowplayersdialog.dark-mode button:hover {
 
 .container-top{
   display: flex;
-  text-align: center;
-  align-content: space-evenly;
   position: fixed;
-  top: 0;
-  left: 0;
   z-index: 999;
   width: 100%;
   background-color: #0F6CBD;
   vertical-align: baseline;
   font-size: 30px;
-  text-align: center;
 }
 
 .container-title{
   padding: 10px;
-  text-align: left;
   flex: 95%;
 }
 
@@ -106,7 +102,6 @@ dialog#knowplayersdialog.dark-mode button:hover {
   text-align: center;
   display: inline-block;
   font-size: 30px;
-  margin: 4px 2px;
   cursor: pointer;
   transition: all .3s ease-in-out;
 }
@@ -120,6 +115,11 @@ dialog#knowplayersdialog.dark-mode button:hover {
 .button:active{
   transform: scale(0.90);
   transition: -2s;
+}
+
+.button:focus{
+  outline: none;
+  box-shadow: 0 0 0 3px #00d4ff;
 }
 
 .hidden-span{
@@ -139,13 +139,14 @@ dialog#knowplayersdialog.dark-mode button:hover {
 .container-main{
   display: flex;
   flex-wrap: wrap;
-  position: fixed;
-  height: 200px;
+  position: relative;
+  display: flex;
+  justify-content: center;
   top: 99px;
   bottom: 9px;
   width: 100%;
   padding: 25px;
-  font-size: 30px;
+  font-size: 25px;
   text-align: center;
   align-content: space-evenly;
   accent-color: rgb(0, 183, 255);
@@ -154,6 +155,16 @@ dialog#knowplayersdialog.dark-mode button:hover {
 .container-left{
   flex: 25%;
   vertical-align: middle;
+  text-align: left;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  border: 2px solid #00d4ff;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 8px 32px 0 rgba(0, 212, 255, 0.2);
+}
+
+.mistake50 p {
+  font-size: 16px;
 }
 
 .slider {
@@ -183,16 +194,50 @@ dialog#knowplayersdialog.dark-mode button:hover {
 }
 
 .popup-content {
-  border: #0F6CBD 3px solid;
+  border: #0b2a46 3px solid;
   visibility: hidden; /* Hidden by default */
   text-align: center;
   border-radius: 6px;
   padding: 5px 0;
-  position: absolute; /* Position the popup content absolutely */
+  position: fixed; /* Position the popup content absolutely */
   z-index: 10; /* Ensure it appears on top of other elements */
-  bottom: -100%; /* Position above the hovered element */
-  left: 100%;
+  bottom: 100%; /* Position above the hovered element */
+  left: 100px;
   margin-left: -60px; /* Center the popup content (half of width) */
+  overflow-y: scroll;
+}
+
+.login-content {
+  border: #0b2a46 3px solid;
+  text-align: center;
+  visibility: hidden;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 6px;
+  padding: 5px 0;
+  z-index: 10; 
+}
+
+.login-form {
+  position: fixed;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  width: 30%;
+  height: 50%;
+  margin: 0 auto;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+.login:active{
+  transform: scale(0.90);
+  transition: -2s;
+}
+
+.login-form::backdrop {
+  background: rgba(0, 0, 0, 0.69);
 }
 
 .popup-container:hover .popup-content {
@@ -213,6 +258,11 @@ dialog#knowplayersdialog.dark-mode button:hover {
 .container-center{
   flex: 50%;
   align-items: center;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  border: 2px solid #00d4ff;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 8px 32px 0 rgba(0, 212, 255, 0.2);
 }
 
 .title{
@@ -266,9 +316,10 @@ dialog#knowplayersdialog.dark-mode button:hover {
   background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
   border: 2px solid #00d4ff;
   border-radius: 12px;
-  padding: 20px;
+  padding: 10px;
   box-shadow: 0 8px 32px 0 rgba(0, 212, 255, 0.2);
   display: flex;
+  text-align: right;
   flex-direction: column;
   gap: 15px;
   max-height: 600px;
@@ -277,8 +328,17 @@ dialog#knowplayersdialog.dark-mode button:hover {
 
 .container-bottom{
   position: fixed;
-  bottom: 0;
-  right: 0;
+  display: flex;
+  bottom: 7px;
+  right: 7px;
+}
+
+#reset-button {
+  position: relative;
+  border: none;
+  padding: 10px 20px;
+  height: 100px;
+  width: 300px;
 }
 
 .stats-label {
@@ -360,15 +420,20 @@ dialog#knowplayersdialog.dark-mode button:hover {
   background-color: #b72b2b;
 }
 
-/* dialog styling for knowplayersdialog */
-dialog#knowplayersdialog {
-  background: rgba(0, 0, 0, 0.85);
+
+dialog {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.69);
   color: #ffffff;
   border: 2px solid #00d4ff;
   border-radius: 14px;
   padding: 24px 32px;
-  max-width: 400px;
-  width: 90%;
+  justify-content: center;
   box-shadow: 0 12px 40px rgba(0, 212, 255, 0.4);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
@@ -376,30 +441,45 @@ dialog#knowplayersdialog {
   line-height: 1.5;
 }
 
-dialog#knowplayersdialog p {
+.show-dialog{
+  opacity: 1;
+  animation: show 0.5s;
+}
+
+@keyframes show{
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.hide-dialog{
+  opacity: 0;
+  animation: hide .25s;
+}
+
+@keyframes hide{
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+dialog p {
   margin-bottom: 12px;
-}
-
-dialog#knowplayersdialog button {
-  margin-top: 16px;
-  padding: 8px 16px;
-  font-size: 18px;
-  background: linear-gradient(135deg, #00d4ff, #0099ff);
-  color: #000;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-dialog#knowplayersdialog button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0, 212, 255, 0.5);
 }
 
 /* backdrop for open dialog */
 dialog::backdrop {
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.69);
 }
 
 /* .parent {

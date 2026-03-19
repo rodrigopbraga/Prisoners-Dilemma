@@ -25,7 +25,7 @@
                     <input id="roundcounter" class="slider" type="range" min="5" max="50" value="10"/>
                 </div>
                 <div>
-                    <span class="button" id="knowplayersbutton">▌Select your Player ▌</span><br>
+                    <button class="button" id="knowplayersbutton">▌Select your Player ▌</button><br>
                     <span class="popup-content">
                         <div id="knowplayer">
                             <dialog id="knowplayersdialog">
@@ -67,12 +67,31 @@
                     <span>Mistake ratio:<span id="mistakevalue" onchange="Check50()"></span>%</span><br>
                     <input id="mistakeratio" class="slider" type="range" min="0" max="50" value="0"/>
                     <span id="mistake50" class="hidden-span" hidden><br>
-                        ***50% of Mistake Rate makes every play from any profile completely random***</span>
+                        <p>***50% of Mistake Rate makes every play from any profile completely random***</p>
+                    </span>
                 </div>
             </div>
 
             <div class="container-center">
-                <div class="game"><span id="aname"></span> X <span id="bname"></span><br>
+                <div class="login-content" id="login-form">
+                    <dialog id="login-dialog">
+                        <form id="login-form" method="dialog">
+                            <h1>Login</h1>
+                            <br>
+                            <label><b>ID</b></label>
+                            <br>
+                            <input type="text" placeholder="Enter ID" name="id" required>
+                            <br>
+                            <label><b>Password</b></label>
+                            <br>
+                            <input type="password" placeholder="Enter Password" name="psw" required>
+                            <br>
+                            <button class="button" type="submit" onclick="Login(id, psw)">Login</button>
+                        </form>
+                    </dialog>
+                </div>
+                <div class="game">
+                    <span id="aname"></span> X <span id="bname"></span><br>
                     <button id="start-button" class="button" onclick="StartGame(A, B)">Start</button>
                     <div class="game-round">
                         <span>A </span><div id="Aplays"></div>
@@ -86,14 +105,14 @@
                 <span class="stats-label">Statistics:</span>
                 <div class="stats-container">
                     <div class="player-stats" id="stats-player-a">
-                        <h3 id="stats-name-a">Player A</h3>
+                        <h3 id="stats-name-a">Player A - </h3><span id="aname"></span>
                         <div class="stat-item"><span class="stat-label">Current Points:</span><span id="stat-cpoints-a">0</span></div>
                         <div class="stat-item"><span class="stat-label">Last Play:</span><span id="stat-lplay-a">-</span></div>
                         <div class="stat-item"><span class="stat-label">All Time Points:</span><span id="stat-atpoints-a">0</span></div>
                         <div class="stat-item"><span class="stat-label">Rounds Played:</span><span id="stat-atrounds-a">0</span></div>
                     </div>
                     <div class="player-stats" id="stats-player-b">
-                        <h3 id="stats-name-b">Player B</h3>
+                        <h3 id="stats-name-b">Player B - </h3><span id="bname"></span>
                         <div class="stat-item"><span class="stat-label">Current Points:</span><span id="stat-cpoints-b">0</span></div>
                         <div class="stat-item"><span class="stat-label">Last Play:</span><span id="stat-lplay-b">-</span></div>
                         <div class="stat-item"><span class="stat-label">All Time Points:</span><span id="stat-atpoints-b">0</span></div>

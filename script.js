@@ -94,13 +94,21 @@ const DisplayToggle = () => {
 
 const openModal = document.getElementById("knowplayersbutton");
 const modal = document.getElementById("knowplayersdialog");
+const login = document.getElementById("login-dialog");
 const closeModal = document.getElementById("close-modal");
 
+setTimeout(function() {
+  login.classList.add("show-dialog");
+  login.showModal();
+}, 500);
+
 openModal.addEventListener("click", () => {
+  modal.classList.add("show-dialog");
   modal.showModal();
 });
 
 closeModal.addEventListener("click", () => {
+  //modal.classList.add("hide-dialog");
   modal.close();
 });
 
