@@ -240,6 +240,18 @@ dialog#knowplayersdialog.dark-mode button:hover {
   background: rgba(0, 0, 0, 0.69);
 }
 
+.login-error {
+  color: #ff4d4d;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.password-error {
+  color: #ff4d4d;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
 .popup-container:hover .popup-content {
   visibility: visible; /* Show the popup content on hover */
 }
@@ -407,10 +419,6 @@ dialog#knowplayersdialog.dark-mode button:hover {
     flex: 100%;
   }
 }
-
-/* .game {
-  
-} */
 
 .tplay {
   background-color: #3EB72B;

@@ -94,9 +94,9 @@ const DisplayToggle = () => {
 
 const openModal = document.getElementById("knowplayersbutton");
 const modal = document.getElementById("knowplayersdialog");
-const login = document.getElementById("login-dialog");
 const closeModal = document.getElementById("close-modal");
 
+const login = document.getElementById("login-dialog");
 setTimeout(function() {
   login.classList.add("show-dialog");
   login.showModal();
@@ -106,6 +106,72 @@ openModal.addEventListener("click", () => {
   modal.classList.add("show-dialog");
   modal.showModal();
 });
+
+const logintb = document.getElementById("login-input");
+logintb.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    passwordtb.focus();
+  }
+});
+
+const passwordtb = document.getElementById("password-input");
+passwordtb.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    loginbtn.click();
+  }
+});
+
+const loginbtn = document.getElementById("login-button");
+loginbtn.addEventListener("click", () => {
+  const id = logintb.value;
+  const psw = passwordtb.value;
+  validateLogin(); // provisory validation position
+  if(Login(id, psw)){
+    login.classList.remove("show-dialog");
+    login.classList.add("hide-dialog");
+    login.close();
+  }
+  else{
+    alert("Invalid ID or password. Please try again.");
+    logintb.getfocus();
+  }
+});
+
+const loginError = document.getElementById("login-error");
+const passwordError = document.getElementById("password-error");
+
+function validateLogin() {
+  const id = logintb.value;
+  const psw = passwordtb.value;
+  let valid = true;
+
+  if (id.trim() === "") {
+    loginError.textContent = "ID cannot be empty.";
+    valid = false;
+  } else if (id.trim().length < 3) {
+    loginError.textContent = "ID must be at least 3 characters long.";
+    valid = false;
+  } else if (id.trim().length > 15) {
+    loginError.textContent = "ID must be at most 15 characters long.";
+    valid = false;
+  } else {
+    loginError.textContent = "";
+  }
+
+  if (psw.trim() === "") {
+    passwordError.textContent = "Password cannot be empty.";
+    valid = false;
+  } else if (psw.trim().length < 4) {
+    passwordError.textContent = "Password must be at least 4 characters long.";
+    valid = false;
+  } else {
+    passwordError.textContent = "";
+  }
+
+  return valid;
+}
 
 closeModal.addEventListener("click", () => {
   //modal.classList.add("hide-dialog");
@@ -117,6 +183,10 @@ document.addEventListener("click", function(event) {
     modal.close();
   }
 });
+
+const Login = (id, psw) => {
+  return id==="1" && psw==="1";
+}
 
 const Check50 = () => {
   if(parseInt(nMistake.innerHTML)===50){

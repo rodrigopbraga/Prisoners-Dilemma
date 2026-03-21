@@ -80,13 +80,17 @@
                             <br>
                             <label><b>ID</b></label>
                             <br>
-                            <input type="text" placeholder="Enter ID" name="id" required>
+                            <input id="login-input" type="text" placeholder="Enter ID" name="id" required>
+                            <br>
+                            <span id="login-error" class="error-message"></span>
                             <br>
                             <label><b>Password</b></label>
                             <br>
-                            <input type="password" placeholder="Enter Password" name="psw" required>
+                            <input id="password-input" type="password" placeholder="Enter Password" name="psw" required>
                             <br>
-                            <button class="button" type="submit" onclick="Login(id, psw)">Login</button>
+                            <span id="password-error" class="error-message"></span>
+                            <br>
+                            <button id="login-button" class="button" type="button">Login</button>
                         </form>
                     </dialog>
                 </div>
