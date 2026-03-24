@@ -413,6 +413,10 @@ dialog#knowplayersdialog.dark-mode button:hover {
     flex: 100%;
   }
 }
+.play-area{
+  font-size: clamp(0.5rem, calc(10vw - 2rem), 2.5rem);
+  font-weight: bold;
+}
 
 .tplay {
   background-color: #3EB72B;
@@ -420,6 +424,7 @@ dialog#knowplayersdialog.dark-mode button:hover {
 
 .fplay {
   background-color: #b72b2b;
+  
 }
 
 
@@ -456,22 +461,6 @@ dialog {
   to {
     opacity: 1;
     transform: scale(1);
-  }
-}
-
-.hide-dialog{
-  opacity: 0;
-  animation: hide .25s;
-}
-
-@keyframes hide{
-  from {
-    opacity: 1;
-    transform: scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: scale(0);
   }
 }
 

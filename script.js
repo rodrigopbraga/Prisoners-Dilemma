@@ -145,7 +145,6 @@ loginbtn.addEventListener("click", () => {
   //validatePassword();
   if(Login(id, psw)){
     login.classList.remove("show-dialog");
-    login.classList.add("hide-dialog");
     login.close();
   }
   else{
