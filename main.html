@@ -80,15 +80,15 @@
                             <br>
                             <label><b>ID</b></label>
                             <br>
-                            <input id="login-input" type="text" placeholder="Enter ID" name="id" required>
+                            <input id="login-input" type="text" placeholder="Enter ID" name="id"  onblur="tbBlured()" required>
                             <br>
-                            <span id="login-error" class="error-message"></span>
+                            <span id="login-error" class="error"></span>
                             <br>
                             <label><b>Password</b></label>
                             <br>
-                            <input id="password-input" type="password" placeholder="Enter Password" name="psw" required>
+                            <input id="password-input" type="password" placeholder="Enter Password" name="psw" onblur="tbBlured()" required>
                             <br>
-                            <span id="password-error" class="error-message"></span>
+                            <span id="password-error" class="error"></span>
                             <br>
                             <button id="login-button" class="button" type="button">Login</button>
                         </form>

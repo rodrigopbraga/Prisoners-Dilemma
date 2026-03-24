@@ -16,7 +16,7 @@ body{
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: 'Trebuchet MS';
   transition: all .5s ease-in-out;
 }
 
@@ -240,15 +240,9 @@ dialog#knowplayersdialog.dark-mode button:hover {
   background: rgba(0, 0, 0, 0.69);
 }
 
-.login-error {
+.error {
   color: #ff4d4d;
-  font-size: 14px;
-  margin-top: 8px;
-}
-
-.password-error {
-  color: #ff4d4d;
-  font-size: 14px;
+  font-size: 0.8em;
   margin-top: 8px;
 }
 

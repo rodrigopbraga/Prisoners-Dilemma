@@ -107,6 +107,12 @@ openModal.addEventListener("click", () => {
   modal.showModal();
 });
 
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    event.preventDefault();
+  }
+});
+
 const logintb = document.getElementById("login-input");
 logintb.addEventListener("keypress", function(event) {
   if (event.key === "Enter") {
@@ -114,6 +120,10 @@ logintb.addEventListener("keypress", function(event) {
     passwordtb.focus();
   }
 });
+
+logintb.onblur = function() {
+  validateLogin();
+};
 
 const passwordtb = document.getElementById("password-input");
 passwordtb.addEventListener("keypress", function(event) {
@@ -123,11 +133,16 @@ passwordtb.addEventListener("keypress", function(event) {
   }
 });
 
+passwordtb.onblur = function() {
+  validatePassword();
+};
+
 const loginbtn = document.getElementById("login-button");
 loginbtn.addEventListener("click", () => {
   const id = logintb.value;
   const psw = passwordtb.value;
-  validateLogin(); // provisory validation position
+  //validateLogin(); // provisory login validation position
+  //validatePassword();
   if(Login(id, psw)){
     login.classList.remove("show-dialog");
     login.classList.add("hide-dialog");
@@ -144,14 +159,13 @@ const passwordError = document.getElementById("password-error");
 
 function validateLogin() {
   const id = logintb.value;
-  const psw = passwordtb.value;
   let valid = true;
 
   if (id.trim() === "") {
     loginError.textContent = "ID cannot be empty.";
     valid = false;
   } else if (id.trim().length < 3) {
-    loginError.textContent = "ID must be at least 3 characters long.";
+    loginError.textContent = "ID must be at least 5 characters long.";
     valid = false;
   } else if (id.trim().length > 15) {
     loginError.textContent = "ID must be at most 15 characters long.";
@@ -160,11 +174,21 @@ function validateLogin() {
     loginError.textContent = "";
   }
 
+  return valid;
+}
+
+function validatePassword() {
+  const psw = passwordtb.value;
+  let valid = true;
+
   if (psw.trim() === "") {
     passwordError.textContent = "Password cannot be empty.";
     valid = false;
   } else if (psw.trim().length < 4) {
     passwordError.textContent = "Password must be at least 4 characters long.";
+    valid = false;
+  } else if (psw.trim().length > 20) {
+    passwordError.textContent = "Password must be at most 20 characters long.";
     valid = false;
   } else {
     passwordError.textContent = "";
