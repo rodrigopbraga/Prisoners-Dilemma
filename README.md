@@ -36,6 +36,9 @@ This simulator enables:
 
 ## 🧮 Game Rules (Scoring System)
 
+Login: 1
+Password: 1
+
 | Player A  | Player B  | Points A | Points B |
 |-----------|-----------|----------|----------|
 | Cooperate | Cooperate | +3       | +3       |
@@ -73,6 +76,7 @@ This project was built to explore:
 - Behavioural simulation  
 - Frontend state control without frameworks  
 - Clean and modular JavaScript logic  
+- Test Automation (other repository)
 
 ---
 
@@ -81,7 +85,8 @@ This project was built to explore:
 - Add new Player Profiles  
 - Make a Free Play version  
 - Improve Statistic section  
-- Enhance CSS and Style overall  
+- Enhance Style overall
+- Enhance Login and Register system
 
 ---
 

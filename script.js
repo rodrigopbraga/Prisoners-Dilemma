@@ -7,6 +7,8 @@ let nRounds = document.getElementById("roundvalue");
 let nMistake = document.getElementById("mistakevalue");
 let aName = document.getElementById("aname");
 let bName = document.getElementById("bname");
+let aPlayer = document.getElementById("aplayer");
+let bPlayer = document.getElementById("bplayer");
 let roundA = document.getElementById("Aplays");
 let roundB = document.getElementById("Bplays");
 
@@ -30,6 +32,8 @@ nRounds.innerHTML = sliderRound.value;
 nMistake.innerHTML = sliderMistake.value;
 aName.innerHTML = selectAElement.options[selectAElement.selectedIndex].value;
 bName.innerHTML = selectBElement.options[selectBElement.selectedIndex].value;
+aPlayer.innerHTML = aName.innerHTML;
+bPlayer.innerHTML = bName.innerHTML;
 
 
 sliderRound.oninput = function() {
@@ -41,10 +45,12 @@ sliderMistake.oninput = function() {
 }
 selectAElement.onchange = function() {
   aName.innerHTML = this.options[this.selectedIndex].value;
+  aPlayer.innerHTML = aName.innerHTML;
   A.playername = aName.innerHTML;
 }
 selectBElement.onchange = function() {
   bName.innerHTML = this.options[this.selectedIndex].value;
+  bPlayer.innerHTML = bName.innerHTML;
   B.playername = bName.innerHTML;
 }
 
@@ -161,9 +167,9 @@ function validateLogin() {
   let valid = true;
 
   if (id.trim() === "") {
-    loginError.textContent = "ID cannot be empty.";
+    loginError.textContent = "ID can not be empty.";
     valid = false;
-  } else if (id.trim().length < 3) {
+  } else if (id.trim().length < 5) {
     loginError.textContent = "ID must be at least 5 characters long.";
     valid = false;
   } else if (id.trim().length > 15) {
