@@ -19,7 +19,7 @@ This simulator enables:
 - Cumulative statistics tracking
 - Light/Dark mode toggle
 
-<img width="1920" height="951" alt="PDS ss" src="https://github.com/user-attachments/assets/015e017b-f429-42e4-9958-af6deca075ea" />
+<img width="1920" height="953" alt="image" src="https://github.com/user-attachments/assets/3cbd6e38-5a5d-4a76-b4f6-43780ebc8b6e" />
 
 
 ---
